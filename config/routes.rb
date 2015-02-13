@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users
+  resources :users, only: [:show]
 
   root 'application#index'
 end
