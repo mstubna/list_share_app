@@ -18,7 +18,8 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'minitest'
-  gem 'rspec-rails', '3.0.1'
+  gem 'rspec-rails', '~> 3.1'
+  gem 'fabrication', '2.12.2'
 end
 
 group :production do
@@ -26,7 +27,5 @@ group :production do
 end
 
 group :test do
-  gem 'rspec-collection_matchers', '1.1.2'
-  gem 'shoulda-callback-matchers', '1.1.1'
-  gem 'shoulda-matchers', '2.7.0'
+  gem 'shoulda-matchers', '2.8.0'
 end
