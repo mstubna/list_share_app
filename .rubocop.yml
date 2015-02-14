@@ -1,0 +1,31 @@
+AllCops:
+  RunRailsCops: true
+  Exclude:
+    - 'bin/**/*'
+    - 'db/schema.rb'
+    - 'db/migrate/*.rb'
+    - 'vendor/bundle/**/*'
+
+Documentation:
+  Enabled: false
+
+ClassLength:
+  Severity: refactor
+
+LineLength:
+  Enabled: false
+
+Lint/RescueException:
+  Severity: refactor
+
+MethodLength:
+  Severity: refactor
+
+Metrics/CyclomaticComplexity:
+  Severity: refactor
+
+Metrics/ParameterLists:
+  Severity: refactor
+
+Metrics/PerceivedComplexity:
+  Severity: refactor

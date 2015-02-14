@@ -1,5 +1,4 @@
 module DeviseHelper
-
   # intercept devise errors and display them as flash messages
   def devise_error_messages!
     return if resource.errors.empty?
@@ -8,6 +7,6 @@ module DeviseHelper
       str += "#{msg}. "
     end
     flash.now[:devise_error] = str
-    return
+    nil
   end
 end

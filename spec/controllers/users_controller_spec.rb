@@ -5,16 +5,15 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'actions' do
     describe '#show' do
-
       let(:user) { Fabricate(:user) }
 
-      context "When the user is not signed in" do
+      context 'When the user is not signed in' do
         before { get :show, id: user.id }
         it { is_expected.to set_flash[:alert].to(I18n.t('devise.failure.unauthenticated')) }
         it { is_expected.to redirect_to(new_user_session_path) }
       end
 
-      context "When the user is signed in" do
+      context 'When the user is signed in' do
         before do
           sign_in user
           get :show, id: user.id
@@ -30,7 +29,7 @@ RSpec.describe UsersController, type: :controller do
           get :show, id: user.id
         end
         it { is_expected.to redirect_to(root_path) }
-        it { is_expected.to set_flash[:alert].to(I18n.t('controllers.user.unauthorized'))}
+        it { is_expected.to set_flash[:alert].to(I18n.t('controllers.user.unauthorized')) }
       end
     end
   end

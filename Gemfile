@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '4.2.0'
 gem 'mysql2'
 gem 'sass-rails', '5.0.1'
@@ -28,4 +27,5 @@ end
 
 group :test do
   gem 'shoulda-matchers', '2.8.0'
+  gem 'rubocop', require: false
 end

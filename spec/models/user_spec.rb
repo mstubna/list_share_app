@@ -5,7 +5,6 @@ RSpec.describe User, type: :model do
 
   describe 'schema' do
     describe 'columns' do
-
       describe 'current_sign_in_at' do
         example do
           expect(subject).to have_db_column(:current_sign_in_at)
@@ -137,7 +136,6 @@ RSpec.describe User, type: :model do
             .unique(true)
         end
       end
-
     end
   end
 
@@ -152,5 +150,4 @@ RSpec.describe User, type: :model do
     example { expect(subject).to be_a(Devise::Models::Trackable) }
     example { expect(subject).to be_a(Devise::Models::Validatable) }
   end
-
 end
