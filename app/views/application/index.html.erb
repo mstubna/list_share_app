@@ -1,17 +1,17 @@
 <div class='medium-6 medium-offset-3 small-12 columns'>
 
   <div class='row'>
-    <h3>List Share App</h3>
+    <h3>What is this?</h3>
+  </div>
+  <div class='row'>
+    <p>A simple app for creating and sharing lists</p>
   </div>
 
   <div class='row'>
-    <% if user_signed_in? %>
-      <%= link_to 'Sign out', destroy_user_session_path, class: 'button', method: :delete %>
-      <%= link_to 'Profile', user_path(current_user), class: 'button' %>
-    <% else %>
-      <%= link_to 'Sign Up', new_user_registration_path, class: 'button' %>
-      <%= link_to 'Sign In', new_user_session_path, class: 'button' %>
-    <% end %>
+    <h3>How can I start using it?</h3>
   </div>
-
+  <div class='row'>
+    <p>Either <%= link_to 'Sign Up', new_user_registration_path, class: 'button' %>
+    or <%= link_to 'Sign In', new_user_session_path, class: 'button' %></p>
+  </div>
 </div>
