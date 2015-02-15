@@ -46,13 +46,13 @@ RSpec.describe List, type: :model do
         end
       end
     end
+  end
 
-    describe 'associations' do
-      describe 'user' do
-        example do
-          expect(subject).to belong_to(:user)
-            .class_name('User')
-        end
+  describe 'associations' do
+    describe 'user' do
+      example do
+        expect(subject).to belong_to(:user)
+          .class_name('User')
       end
     end
   end

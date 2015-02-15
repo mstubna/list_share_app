@@ -137,13 +137,13 @@ RSpec.describe User, type: :model do
         end
       end
     end
+  end
 
-    describe 'associations' do
-      describe 'lists' do
-        example do
-          expect(subject).to have_many(:lists)
-            .dependent(:destroy)
-        end
+  describe 'associations' do
+    describe 'lists' do
+      example do
+        expect(subject).to have_many(:lists)
+          .dependent(:destroy)
       end
     end
   end
