@@ -1,6 +1,10 @@
 language: ruby
 rvm:
   - 2.1.5
+services:
+  - mysql
+before_script:
+  - mysql -e 'create database list_share_app_test;'
 script:
   - bundle exec rspec
   - bundle exec rubocop
