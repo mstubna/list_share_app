@@ -1,6 +1,6 @@
 <div class='medium-6 medium-offset-3 small-12 columns'>
 
-  <%= link_to 'My lists', user_lists_path(@user), class: 'secondary button' %>
+  <%= link_to 'Back', user_lists_path(@user), class: 'secondary button' %>
   <%= link_to 'Delete', user_list_path(@user, @list), class: 'alert button', method: :delete, data: { confirm: t('views.list.confirm_delete') } %>
   <%= link_to 'Edit', edit_user_list_path(@user, @list), remote: true, class: 'button' %>
 
