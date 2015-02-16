@@ -33,7 +33,7 @@ class ListsController < ApplicationController
   private
 
   def find_list
-    @list = @user.lists.find_by_id(params[:id])
+    @list = List.find_by_id(params[:id])
   end
 
   def list_params
