@@ -6,7 +6,7 @@ class ListsController < ApplicationController
     authorize_user! params[:user_id]
   end
 
-  before_action :find_list, only: [:show, :edit]
+  before_action :find_list, only: [:show, :edit, :update, :destroy]
 
   def index
     @lists = @user.lists.order('updated_at DESC')
@@ -19,7 +19,6 @@ class ListsController < ApplicationController
   end
 
   def update
-    @list = @user.lists.find_by_id(params[:id])
     if @list.update_attributes(list_params)
       flash[:notice] = I18n.t('controllers.list.list_updated')
     end
@@ -27,8 +26,7 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    list = @user.lists.find_by_id(params[:id])
-    flash[:notice] = I18n.t('controllers.list.list_deleted') if list.destroy
+    flash[:notice] = I18n.t('controllers.list.list_deleted') if @list.destroy
     redirect_to user_lists_path(@user)
   end
 
