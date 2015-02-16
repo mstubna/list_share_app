@@ -4,8 +4,12 @@
     <h3>My Lists</h3>
   </div>
 
-  <%= link_to 'New List', new_user_list_path, class: 'button' %>
+  <%= link_to 'New List', new_user_list_path(@user), remote: true, class: 'button' %>
 
-  <%= render @lists %>
+  <div id='list-form' class='reveal-modal' data-reveal data-options="animation: 'none';"></div>
+
+  <div id='lists'>
+    <%= render @lists %>
+  </div>
 
 </div>

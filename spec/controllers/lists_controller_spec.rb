@@ -20,18 +20,16 @@ RSpec.describe ListsController, type: :controller do
       end
 
       describe '#new' do
-        before { get :new, user_id: list.user.id }
-        it { is_expected.to render_template('lists/new') }
-        it { is_expected.to render_with_layout('application') }
+        before { xhr :get, :new, user_id: list.user.id, format: :js }
+        it { response.content_type.to_s.should eq Mime::Type.lookup_by_extension(:js).to_s }
       end
 
       describe '#create' do
         let(:attr) do
           { title: 'new title', body: 'new body text' }
         end
-        before { post :create, user_id: list.user.id, id: list.id, list: attr }
-        it { is_expected.to redirect_to(user_lists_path) }
-        it { is_expected.to set_flash[:notice].to(I18n.t('controllers.list.new_list_created')) }
+        before { xhr :post, :create, user_id: list.user.id, id: list.id, list: attr, format: :js }
+        it { response.content_type.to_s.should eq Mime::Type.lookup_by_extension(:js).to_s }
       end
 
       describe '#edit' do

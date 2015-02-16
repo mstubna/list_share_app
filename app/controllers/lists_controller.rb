@@ -1,6 +1,8 @@
 class ListsController < ApplicationController
   include Concerns::UserAuthorizable
 
+  respond_to :html, :js
+
   before_action do
     authenticate_user!
     authorize_user! params[:user_id]
@@ -13,9 +15,8 @@ class ListsController < ApplicationController
   end
 
   def create
-    list = @user.lists.build(list_params)
-    flash[:notice] = I18n.t('controllers.list.new_list_created') if list.save!
-    redirect_to user_lists_path(@user)
+    @list = @user.lists.build(list_params)
+    @list.save!
   end
 
   def update

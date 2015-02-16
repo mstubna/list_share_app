@@ -1,0 +1,21 @@
+<%= form_for([@user, @user.lists.build], remote: true) do |f| %>
+
+  <div class="row field">
+    <%= f.label :title do %>Title
+      <%= f.text_field :title, autofocus: true %>
+    <% end %>
+  </div>
+
+  <div class="row field">
+    <%= f.label :body do %>Text
+      <%= f.text_area :body %>
+    <% end %>
+  </div>
+
+  <div class='row clearfix'>
+    <div class='right'>
+      <button id='form-cancel-button' class='button secondary'>Cancel</button>
+      <%= f.submit "Save", class: 'button' %>
+    </div>
+  </div>
+<% end %>

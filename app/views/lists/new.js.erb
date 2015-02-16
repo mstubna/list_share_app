@@ -1,0 +1,8 @@
+$('#list-form').html("<%= j (render 'form') %>")
+  .prepend($("<h3>Create a new list</h3>"))
+  .foundation('reveal', 'open');
+
+$('#form-cancel-button').on('click', function(e){
+  e.preventDefault();
+  $('#list-form').foundation('reveal', 'close');
+});

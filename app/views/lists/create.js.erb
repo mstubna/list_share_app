@@ -1,0 +1,5 @@
+$('#list-form').foundation('reveal', 'close');
+var list = $("<%= j (render @list) %>")
+  .css({ display: 'none'});
+$('#lists').prepend(list);
+list.slideDown(350);

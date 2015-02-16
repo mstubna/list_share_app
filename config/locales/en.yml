@@ -24,6 +24,5 @@ en:
     user:
       unauthorized: "Unauthorized."
     list:
-      new_list_created: "New list created!"
       list_updated: "List updated!"
       list_deleted: "List deleted."
