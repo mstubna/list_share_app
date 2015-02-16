@@ -1,0 +1,14 @@
+<div class='medium-6 medium-offset-3 small-12 columns'>
+
+  <%= link_to 'My lists', user_lists_path(@user), class: 'secondary button' %>
+  <%= link_to 'Delete', user_list_path(@user, @list), class: 'alert button', method: :delete %>
+  <%= link_to 'Edit', edit_user_list_path(@user, @list), class: 'button' %>
+
+  <div class='row'>
+    <h3><%= @list.title %></h3>
+  </div>
+  <div class='row'>
+    <p class='list-body'><%= @list.body %></p>
+  </div>
+
+</div>

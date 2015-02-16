@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  include Concerns::UserAuthorizable
+
+  before_action do
+    authenticate_user!
+    authorize_user! params[:id]
+  end
 
   def show
     @user = User.find(params[:id])
-    return if @user == current_user
-    redirect_to root_path, alert: I18n.t('controllers.user.unauthorized')
   end
 end
