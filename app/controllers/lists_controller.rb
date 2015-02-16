@@ -6,25 +6,16 @@ class ListsController < ApplicationController
     authorize_user! params[:user_id]
   end
 
+  before_action :find_list, only: [:show, :edit]
+
   def index
     @lists = @user.lists.order('updated_at DESC')
-  end
-
-  def show
-    @list = @user.lists.find_by_id(params[:id])
-  end
-
-  def new
   end
 
   def create
     list = @user.lists.build(list_params)
     flash[:notice] = I18n.t('controllers.list.new_list_created') if list.save!
     redirect_to user_lists_path(@user)
-  end
-
-  def edit
-    @list = @user.lists.find_by_id(params[:id])
   end
 
   def update
@@ -41,7 +32,14 @@ class ListsController < ApplicationController
     redirect_to user_lists_path(@user)
   end
 
-  def list_params
-    params.require(:list).permit(:title, :body)
-  end
+  private
+
+    def find_list
+      @list = @user.lists.find_by_id(params[:id])
+    end
+
+    def list_params
+      params.require(:list).permit(:title, :body)
+    end
+
 end
