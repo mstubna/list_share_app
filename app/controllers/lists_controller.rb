@@ -32,12 +32,11 @@ class ListsController < ApplicationController
 
   private
 
-    def find_list
-      @list = @user.lists.find_by_id(params[:id])
-    end
+  def find_list
+    @list = @user.lists.find_by_id(params[:id])
+  end
 
-    def list_params
-      params.require(:list).permit(:title, :body)
-    end
-
+  def list_params
+    params.require(:list).permit(:title, :body)
+  end
 end
