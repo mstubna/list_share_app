@@ -1,0 +1,3 @@
+$('#list-form').foundation('reveal', 'close');
+var list = $("<%= j (render partial: 'list_show', object: @list) %>");
+$('#list-show').html(list);

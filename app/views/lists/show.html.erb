@@ -2,13 +2,12 @@
 
   <%= link_to 'My lists', user_lists_path(@user), class: 'secondary button' %>
   <%= link_to 'Delete', user_list_path(@user, @list), class: 'alert button', method: :delete %>
-  <%= link_to 'Edit', edit_user_list_path(@user, @list), class: 'button' %>
+  <%= link_to 'Edit', edit_user_list_path(@user, @list), remote: true, class: 'button' %>
 
-  <div class='row'>
-    <h3><%= @list.title %></h3>
+  <div id='list-show'>
+    <%= render partial: 'list_show', object: @list %>
   </div>
-  <div class='row'>
-    <p class='list-body'><%= @list.body %></p>
-  </div>
+
+  <div id='list-form' class='reveal-modal' data-reveal data-options="animation: 'none';"></div>
 
 </div>

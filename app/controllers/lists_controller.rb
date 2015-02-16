@@ -14,16 +14,17 @@ class ListsController < ApplicationController
     @lists = @user.lists.order('updated_at DESC')
   end
 
+  def new
+    @list = @user.lists.build
+  end
+
   def create
     @list = @user.lists.build(list_params)
     @list.save!
   end
 
   def update
-    if @list.update_attributes(list_params)
-      flash[:notice] = I18n.t('controllers.list.list_updated')
-    end
-    redirect_to user_lists_path(@user)
+    @list.update_attributes(list_params)
   end
 
   def destroy
