@@ -3,10 +3,7 @@ class UsersController < ApplicationController
 
   before_action do
     authenticate_user!
-    authorize_user! params[:id]
-  end
-
-  def show
     @user = User.find(params[:id])
+    authorize_user!
   end
 end

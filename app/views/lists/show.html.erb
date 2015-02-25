@@ -1,7 +1,9 @@
 <div class='medium-6 medium-offset-3 small-12 columns'>
 
-  <%= link_to 'Back', user_lists_path(@user), class: 'secondary button' %>
-  <%= link_to 'Delete', user_list_path(@user, @list), class: 'alert button', method: :delete, data: { confirm: t('views.list.confirm_delete') } %>
+  <%= link_to 'Back', root_path, class: 'secondary button' %>
+  <% if @list.user == current_user %>
+    <%= link_to 'Delete', user_list_path(@user, @list), class: 'alert button', method: :delete, data: { confirm: t('views.list.confirm_delete') } %>
+  <% end %>
   <%= link_to 'Edit', edit_user_list_path(@user, @list), remote: true, class: 'button' %>
 
   <div id='list-show'>

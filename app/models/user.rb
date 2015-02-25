@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
     foreign_key: 'list_id',
     dependent: :destroy
   )
+
+  def all_lists
+    lists.to_ary.concat(shared_lists.to_ary)
+  end
 end

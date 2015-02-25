@@ -5,13 +5,14 @@ class ListsController < ApplicationController
 
   before_action do
     authenticate_user!
-    authorize_user! params[:user_id]
+    @user = User.find_by_id params[:user_id]
   end
-
+  before_action :authorize_user!, only: [:index, :new, :create, :destroy]
+  before_action :authorize_own_or_shared_lists, only: [:show, :edit, :update]
   before_action :find_list, only: [:show, :edit, :update, :destroy]
 
   def index
-    @lists = @user.lists.order('updated_at DESC')
+    @lists = @user.all_lists.sort! { |x, y| y.updated_at <=> x.updated_at }
   end
 
   def new

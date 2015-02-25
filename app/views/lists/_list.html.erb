@@ -7,5 +7,12 @@
   <div class='row'>
     <div class='small-12 columns list-body'><%= list.body %></div>
   </div>
+  <% unless list.user == current_user %>
+    <div class='row'>
+      <div class='small-12 columns list-share'>
+        <span class='right'>Shared by <%= list.user.email %></span>
+      </div>
+    </div>
+  <% end %>
   <%= link_to '', user_list_path(list.user, list) %>
 </div>

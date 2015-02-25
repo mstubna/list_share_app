@@ -175,4 +175,41 @@ RSpec.describe User, type: :model do
     example { expect(subject).to be_a(Devise::Models::Trackable) }
     example { expect(subject).to be_a(Devise::Models::Validatable) }
   end
+
+  describe 'methods' do
+    describe 'instance' do
+      describe 'all_lists' do
+        subject { user.all_lists }
+
+        describe 'when the user owns no lists' do
+          describe 'when the user has no lists shared with them' do
+            let(:user) { Fabricate(:user) }
+            example { expect(subject).to be_empty }
+          end
+
+          describe 'when the user has a list shared with them' do
+            let(:list) { Fabricate(:list) }
+            let(:user) { Fabricate(:user, shared_lists: [list]) }
+            example { expect(subject).to eq([list]) }
+          end
+        end
+
+        describe 'when the user owns a list' do
+          describe 'when the user has no lists shared with them' do
+            let(:list) { Fabricate(:list) }
+            let(:user) { list.user }
+            example { expect(subject).to eq([list]) }
+          end
+
+          describe 'when the user has a list shared with them' do
+            let(:shared_list) { Fabricate(:list) }
+            let(:list) { Fabricate(:list) }
+            let(:user) { list.user }
+            before { user.shared_lists << shared_list }
+            example { expect(subject).to eq([list, shared_list]) }
+          end
+        end
+      end
+    end
+  end
 end
