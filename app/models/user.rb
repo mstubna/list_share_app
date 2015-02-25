@@ -8,4 +8,15 @@ class User < ActiveRecord::Base
     :lists,
     dependent: :destroy
   )
+
+  has_many :collaborations
+
+  has_many(
+    :shared_lists,
+    through: :collaborations,
+    source: :list,
+    class_name: List.name,
+    foreign_key: 'list_id',
+    dependent: :destroy
+  )
 end

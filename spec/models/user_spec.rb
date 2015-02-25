@@ -146,6 +146,22 @@ RSpec.describe User, type: :model do
           .dependent(:destroy)
       end
     end
+
+    describe 'collaborations' do
+      example do
+        expect(subject).to have_many(:collaborations)
+          .class_name('Collaboration')
+      end
+    end
+
+    describe 'shared_lists' do
+      example do
+        expect(subject).to have_many(:shared_lists)
+          .class_name('List')
+          .with_foreign_key('list_id')
+          .dependent(:destroy)
+      end
+    end
   end
 
   describe 'devise' do

@@ -55,5 +55,21 @@ RSpec.describe List, type: :model do
           .class_name('User')
       end
     end
+
+    describe 'collaborations' do
+      example do
+        expect(subject).to have_many(:collaborations)
+          .class_name('Collaboration')
+      end
+    end
+
+    describe 'collaborators' do
+      example do
+        expect(subject).to have_many(:collaborators)
+          .class_name('User')
+          .with_foreign_key('user_id')
+          .dependent(:destroy)
+      end
+    end
   end
 end
