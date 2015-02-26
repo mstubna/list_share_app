@@ -18,7 +18,7 @@ RSpec.describe MainController, type: :controller do
           sign_in user
           get :index
         end
-        it { is_expected.to redirect_to(user_lists_path user) }
+        it { is_expected.to redirect_to(lists_path) }
       end
     end
   end

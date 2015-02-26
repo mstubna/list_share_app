@@ -9,9 +9,19 @@ module Concerns
         redirect_to root_path, alert: I18n.t('controllers.user.unauthorized')
       end
 
-      # restrics a user to accessing only their own lists, or lists that have been shared with them
+      # restrics a user to accessing only their own lists
+      def authorize_own_lists
+        authorize_lists current_user.lists
+      end
+
+      # restrics a user to accessing only their own lists
+      # or lists that have been shared with them
       def authorize_own_or_shared_lists
-        return if current_user.all_lists.map(&:id).include? params[:id].to_i
+        authorize_lists current_user.all_lists
+      end
+
+      def authorize_lists(lists)
+        return if lists.map(&:id).include? params[:id].to_i
         redirect_to root_path, alert: I18n.t('controllers.user.unauthorized')
       end
     end

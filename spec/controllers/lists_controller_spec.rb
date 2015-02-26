@@ -56,7 +56,7 @@ RSpec.describe ListsController, type: :controller do
 
         describe '#destroy' do
           before { delete :destroy, user_id: list.user.id, id: list.id }
-          it { is_expected.to redirect_to(user_lists_path) }
+          it { is_expected.to redirect_to(root_path) }
           it { is_expected.to set_flash[:notice].to(I18n.t('controllers.list.list_deleted')) }
         end
       end
