@@ -7,10 +7,16 @@
   <div class='row'>
     <div class='small-12 columns list-body'><%= list.body %></div>
   </div>
-  <% unless list.user == current_user %>
+  <% if list.user != current_user %>
     <div class='row'>
       <div class='small-12 columns list-share'>
-        <span class='right'>Shared by <%= list.user.email %></span>
+        <span class='right'>shared by <%= list.user.email %></span>
+      </div>
+    </div>
+  <% elsif list.collaborators.any? %>
+    <div class='row'>
+      <div class='small-12 columns list-share'>
+        <span class='right'>shared with <%= (list.collaborators.collect { |c| c.email }).join(', ') %></span>
       </div>
     </div>
   <% end %>
