@@ -7,7 +7,6 @@
   <div class='row'>
     <div class='small-12 columns list-body'><%= list.body %></div>
   </div>
-  <%= link_to '', list_path(list) %>
   <% if list.user != current_user %>
     <div class='row'>
       <div class='small-12 columns'>
@@ -27,4 +26,5 @@
       </div>
     </div>
   <% end %>
+  <%= link_to '', list_path(list) %>
 </div>
