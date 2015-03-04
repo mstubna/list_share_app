@@ -15,13 +15,28 @@
     height: 100%;
   }
 }
+
 .list-body {
   white-space: pre-wrap;
   text-decoration: none;
 }
-.list-share > span {
-  font-style: italic;
-}
+
 textarea {
   min-height: 300px;
+}
+
+.list-user {
+  display: inline-block;
+  margin: 1px 3px;
+  padding: 1px 10px;
+  border-radius: 3px;
+}
+
+.list-collaborator {
+  background: rgba(26, 117, 191, 0.39);
+}
+
+.list-owner {
+  background: rgba(156, 156, 156, 0.34);
+
 }

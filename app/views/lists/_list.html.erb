@@ -7,18 +7,24 @@
   <div class='row'>
     <div class='small-12 columns list-body'><%= list.body %></div>
   </div>
+  <%= link_to '', list_path(list) %>
   <% if list.user != current_user %>
     <div class='row'>
-      <div class='small-12 columns list-share'>
-        <span class='right'>shared by <%= list.user.email %></span>
+      <div class='small-12 columns'>
+        <div class='right'>
+          <span>shared by</span>
+          <%= render partial: 'owner', object: list.user %>
+        </div>
       </div>
     </div>
   <% elsif list.collaborators.any? %>
     <div class='row'>
-      <div class='small-12 columns list-share'>
-        <span class='right'>shared with <%= (list.collaborators.collect { |c| c.email }).join(', ') %></span>
+      <div class='small-12 columns'>
+        <div class='right'>
+          <span>shared with</span>
+          <%= render partial: 'collaborator', collection: list.collaborators %>
+        </div>
       </div>
     </div>
   <% end %>
-  <%= link_to '', list_path(list) %>
 </div>
