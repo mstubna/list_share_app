@@ -188,7 +188,7 @@ RSpec.describe User, type: :model do
           end
 
           describe 'when the user has a list shared with them' do
-            let(:list) { Fabricate(:list) }
+            let(:list) { Fabricate(:list_for_user) }
             let(:user) { Fabricate(:user, shared_lists: [list]) }
             example { expect(subject).to eq([list]) }
           end
@@ -196,14 +196,14 @@ RSpec.describe User, type: :model do
 
         describe 'when the user owns a list' do
           describe 'when the user has no lists shared with them' do
-            let(:list) { Fabricate(:list) }
+            let(:list) { Fabricate(:list_for_user) }
             let(:user) { list.user }
             example { expect(subject).to eq([list]) }
           end
 
           describe 'when the user has a list shared with them' do
-            let(:shared_list) { Fabricate(:list) }
-            let(:list) { Fabricate(:list) }
+            let(:shared_list) { Fabricate(:list_for_user) }
+            let(:list) { Fabricate(:list_for_user) }
             let(:user) { list.user }
             before { user.shared_lists << shared_list }
             example { expect(subject).to eq([list, shared_list]) }

@@ -1,0 +1,2 @@
+Fabricator(:collaboration) do
+end

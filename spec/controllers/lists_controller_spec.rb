@@ -4,7 +4,7 @@ RSpec.describe ListsController, type: :controller do
   it_behaves_like 'an Application controller'
 
   context 'when the user is signed in' do
-    let(:list) { Fabricate(:list) }
+    let(:list) { Fabricate(:list_for_user) }
     before(:each) { sign_in list.user }
     context 'for a list the user owns' do
       describe 'actions' do
@@ -62,7 +62,7 @@ RSpec.describe ListsController, type: :controller do
       end
 
       context 'for a list belonging to another user' do
-        let(:new_list) { Fabricate(:list) }
+        let(:new_list) { Fabricate(:list_for_user) }
         describe 'actions' do
           describe '#show' do
             before { get :show, user_id: new_list.user.id, id: new_list.id }
@@ -97,7 +97,7 @@ RSpec.describe ListsController, type: :controller do
 
   context 'when a user has shared one of their lists with a second user' do
     context 'when the second user is signed in' do
-      let(:list) { Fabricate(:list) }
+      let(:list) { Fabricate(:list_for_user) }
       let(:another_user) { Fabricate(:user) }
       before(:each) do
         another_user.shared_lists << list
