@@ -1,3 +1,9 @@
-require 'capybara/rspec'
+require 'simplecov'
 require 'coveralls'
-Coveralls.wear!('rails')
+require 'capybara/rspec'
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+SimpleCov.start 'rails'
