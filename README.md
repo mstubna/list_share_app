@@ -26,6 +26,9 @@ Simple app that allows users to create lists and share them with other users.
 
         $ coveralls report
 
+    and open the `coverage/index.html` file
+
+
 3. Run rubocop
 
         $ rubocop
