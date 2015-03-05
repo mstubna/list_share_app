@@ -1,0 +1,12 @@
+var $form = $('#collaboration-form');
+$form.html("<%= j (render(partial: 'collaborations')) %>");
+$(document).foundation();  // reapply foundation after adding content to modal
+
+if (!$form.hasClass('open')) {
+  $form.foundation('reveal', 'open');
+}
+
+$('#form-cancel-button').one('click', function(e){
+  e.preventDefault();
+  $form.foundation('reveal', 'close');
+});

@@ -1,0 +1,21 @@
+<h3>Sharing list with</h3>
+<div id='form-alert-container'></div>
+
+<%= render partial: 'collaboration', collection: @collaborations %>
+
+<%= form_for([@list, @collaboration], remote: true) do |f| %>
+  <div class='row'>
+    <div class='row collapse'>
+      <div class="small-10 columns field">
+        <%= f.email_field :user, placeholder: 'Email' %>
+      </div>
+      <div class='small-2 columns'>
+        <%= f.submit "Share", class: 'button postfix' %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class='row clearfix'>
+  <button id='form-cancel-button' class='button secondary right'>Done</button>
+</div>

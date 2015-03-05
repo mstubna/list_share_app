@@ -25,6 +25,10 @@ en:
       unauthorized: "Unauthorized."
     list:
       list_deleted: "List deleted."
+    collaboration:
+      user_not_found: "User not found."
+      user_already_sharing: "User is already sharing this list."
+      user_is_owner: "You can't share with yourself!"
   views:
     list:
       confirm_delete: "Are you sure?"

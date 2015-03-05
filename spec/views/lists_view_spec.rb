@@ -61,3 +61,23 @@ RSpec.describe 'lists/index.html.erb', type: :view do
     end
   end
 end
+
+RSpec.describe 'lists/show.html.erb', type: :view do
+  subject { rendered }
+
+  context 'when the user has a list' do
+    let(:user) { Fabricate(:user_with_lists) }
+    let(:list) { user.lists[0] }
+    before do
+      allow(view).to receive_messages(current_user: user)
+      assign :list, list
+      render
+    end
+    it { is_expected.to have_content(list.title) }
+    it { is_expected.to have_content(list.body) }
+    it { is_expected.to have_link('Back') }
+    it { is_expected.to have_link('Delete') }
+    it { is_expected.to have_link('Edit') }
+    it { is_expected.to have_link('Sharing') }
+  end
+end
