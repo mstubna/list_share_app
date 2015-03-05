@@ -31,7 +31,7 @@ RSpec.describe ListsController, type: :controller do
           let(:attr) do
             { title: 'new title', body: 'new body text' }
           end
-          before { xhr :post, :create, user_id: list.user.id, id: list.id, list: attr, format: :js }
+          before { xhr :post, :create, user_id: list.user.id, list: attr, format: :js }
           it "the response content type should be 'text/javascript'" do
             expect(response.content_type.to_s).to eq Mime::Type.lookup_by_extension(:js).to_s
           end
