@@ -2,7 +2,15 @@
 
 [![Build Status](https://travis-ci.org/mstubna/list_share_app.svg)](https://travis-ci.org/mstubna/list_share_app) [![Coverage Status](https://coveralls.io/repos/mstubna/list_share_app/badge.svg)](https://coveralls.io/r/mstubna/list_share_app) [![Code Climate](https://codeclimate.com/github/mstubna/list_share_app/badges/gpa.svg)](https://codeclimate.com/github/mstubna/list_share_app) [![Dependency Status](https://gemnasium.com/mstubna/list_share_app.svg)](https://gemnasium.com/mstubna/list_share_app)
 
-Simple app that allows users to create lists and share them with other users.
+## Description
+
+A simple app that allows users to create lists and share them with other users.
+
+![](public/screenshots/ss_1.png)
+
+![](public/screenshots/ss_2.png)
+
+![](public/screenshots/ss_3.png)
 
 ## Running locally
 
