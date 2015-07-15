@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.3'
 gem 'mysql2'
-gem 'sass-rails', '5.0.1'
+gem 'sass-rails', '5.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'devise', '3.4.1'
+gem 'devise', '3.5.1'
 gem 'foundation-rails'
 
 group :development, :test do
@@ -17,7 +17,7 @@ group :development, :test do
   gem 'spring'
   gem 'minitest'
   gem 'rspec-rails', '~> 3.1'
-  gem 'fabrication', '2.12.2'
+  gem 'fabrication', '2.13.2'
 end
 
 group :production do
