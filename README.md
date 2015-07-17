@@ -4,7 +4,9 @@
 
 ## Description
 
-A simple app that allows users to create lists and share them with other users.
+A simple app that allows users to create notes and lists and share them with other users.
+
+Try it out at <http://sharemynotes.co/>
 
 ![](public/screenshots/ss_1.png)
 
