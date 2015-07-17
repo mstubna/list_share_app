@@ -48,6 +48,3 @@ test:
 #
 production:
   <<: *default
-  database: list_shaer_app_production
-  username: list_share_app
-  password: <%= ENV['LIST_SHARE_APP_DATABASE_PASSWORD'] %>
